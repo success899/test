@@ -6,7 +6,12 @@
         <div class="m-5">
             {% if target_user.profile %}
             <img src="{{ target_user.profile.image.url }}" class="profile_image m-4" alt="profile image">
-            <H2 class="NNS_B">{{ target_user.profile.nickname }}</H2>
+            <H2 class="NNS_B">
+                {{ target_user.profile.nickname }}
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    edit
+                </a>
+            </H2>
             <h5>{{ target_user.profile.message }}</h5>
             {% else %}
             <h2>
