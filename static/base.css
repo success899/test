@@ -48,6 +48,11 @@
 
 .article_image {
     border-radius: 2rem;
-    width: 65%;
+    width: 100%;
     box-shadow: 0 0 1rem gray;
+}
+
+.mw-700 {
+    max-width: 700px;
+    padding: 1rem 1.5rem;
 }
