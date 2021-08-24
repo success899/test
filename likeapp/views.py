@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.generic import RedirectView
 from django.urls import reverse
+from django.contrib import messages
 
 from articleapp.models import Article
 from likeapp.models import LikeRecord
@@ -21,13 +22,17 @@ class LikeArticleView(RedirectView):
         like_record = LikeRecord.objects.filter(user=user, article=article)
 
         if like_record.exists():
+            # 좋아요 반영 안되는 부분
+            messages.add_message(request, messages.ERROR, '좋아요는 한번만 가능합니다.')
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
 
         else:
+            # 좋아요 반영 되는 부분
             LikeRecord(user=user, article=article).save()
 
         article.like += 1
         article.save()
+        messages.add_message(request, messages.SUCCESS, '좋아요가 반영되었습니다.')
 
         return super().get(request, *args, **kwargs)
 
