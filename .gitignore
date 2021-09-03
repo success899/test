@@ -84,3 +84,6 @@ __pycache__/
 media/
 
 staticfiles/
+
+django_test_gcp
+django_test_gcp.pub
