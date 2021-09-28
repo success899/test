@@ -14,7 +14,7 @@ services:
       - gis_4ban_media:/data/media/
 
   django:
-    image: test_django:4
+    image: test_django:5
     networks:
       - gis_4ban_network
     volumes:
