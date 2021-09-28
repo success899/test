@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo 'asddwzwdxwdc003'
+RUN echo 'aswddd003'
 
 RUN git clone https://github.com/success899/test.git
 
